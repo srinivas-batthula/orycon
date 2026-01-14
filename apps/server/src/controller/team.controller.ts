@@ -1,8 +1,7 @@
-import { Role } from "@prisma/client";
 import prisma from "@osc/prisma";
 
 import type { Request, Response } from "express";
-import type { Team } from "../utils/types";
+import type { Team, Role } from "../utils/types";
 
 export interface AuthenticatedRequest extends Request {
   user?: {
@@ -18,7 +17,7 @@ class teamController {
       const user = req.user;
       if (!user) throw new Error("User not authenticated");
 
-      if (!(user.role === Role.ADMIN || user.role === Role.LEAD)) {
+      if (!(user.role === "ADMIN" || user.role === "LEAD")) {
         return res.status(403).json({
           message: "Unauthorized: Only admins or leads can create teams",
           error: true,
@@ -63,7 +62,7 @@ class teamController {
       const user = req.user;
       if (!user) throw new Error("User not authenticated");
 
-      if (!(user.role === Role.ADMIN || user.role === Role.LEAD)) {
+      if (!(user.role === "ADMIN" || user.role === "LEAD")) {
         return res.status(403).json({
           error: true,
           message: "Unauthorized: Only admins or leads can remove teams",
@@ -114,7 +113,7 @@ class teamController {
           .json({ error: true, message: "User not authenticated", data: null });
       }
 
-      if (!(user.role === Role.ADMIN || user.role === Role.LEAD)) {
+      if (!(user.role === "ADMIN" || user.role === "LEAD")) {
         return res.status(403).json({
           error: true,
           message:
