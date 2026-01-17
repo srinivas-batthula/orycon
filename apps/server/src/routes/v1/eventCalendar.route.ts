@@ -14,12 +14,12 @@ eventCalendarRouter.get("/", (req, res) =>
 );
 
 // UPDATE
-eventCalendarRouter.put("/:eventId", (req, res) =>
+eventCalendarRouter.put("/by-event-id/:eventId", (req, res) =>
     eventCalendarController.updateEventToCalendar(req, res),
 );
 
 // DELETE
-eventCalendarRouter.delete("/:eventId", (req, res) =>
+eventCalendarRouter.delete("/by-event-id/:eventId", (req, res) =>
     eventCalendarController.deleteEventFromCalendar(req, res),
 );
 

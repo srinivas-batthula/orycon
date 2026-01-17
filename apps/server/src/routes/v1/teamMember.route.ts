@@ -5,15 +5,15 @@ export const teamMemberRouter = Router();
 
 teamMemberRouter.post("/create", teamMemberController.createTeamMember);
 teamMemberRouter.post(
-  "/remove/:memberId",
+  "/remove/by-member-id/:memberId",
   teamMemberController.removeTeamMember,
 );
 teamMemberRouter.post(
-  "/update/:memberId",
+  "/update/by-member-id/:memberId",
   teamMemberController.updateTeamMember,
 );
 
 teamMemberRouter.get(
-  "/team/:teamId",
+  "/by-team-id/:teamId",
   teamMemberController.getTeamMembersByTeam,
 );

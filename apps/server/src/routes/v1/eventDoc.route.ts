@@ -9,22 +9,22 @@ eventDocRouter.post("/", (req, res) =>
 );
 
 // READ (All by Event ID)
-eventDocRouter.get("/event/:id", (req, res) =>
+eventDocRouter.get("/by-event-id/:id", (req, res) =>
     eventDocController.getAllEventDocumentation(req, res),
 );
 
 // READ (By ID)
-eventDocRouter.get("/:id", (req, res) =>
+eventDocRouter.get("/by-id/:id", (req, res) =>
     eventDocController.getEventDocumentationById(req, res),
 );
 
 // UPDATE
-eventDocRouter.put("/:id", (req, res) =>
+eventDocRouter.put("/by-id/:id", (req, res) =>
     eventDocController.updateEventDocumentation(req, res),
 );
 
 // DELETE
-eventDocRouter.delete("/:id", (req, res) =>
+eventDocRouter.delete("/by-id/:id", (req, res) =>
     eventDocController.deleteEventDocumentation(req, res),
 );
 

@@ -14,7 +14,7 @@ eventRouter.get("/all", (req, res) =>
 );
 
 // READ (By ID)
-eventRouter.get("/:id", (req, res) =>
+eventRouter.get("/by-id/:id", (req, res) =>
     eventController.getEventsById(req, res),
 );
 
